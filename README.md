@@ -1,6 +1,6 @@
 #Feedreader testing
 
-This is a web-based application that reads RSS feeds. This app has also[Jasmine](http://jasmine.github.io/) included for performing test on it.
+This is a web-based application that reads RSS feeds. This app has also [Jasmine](http://jasmine.github.io/) included for performing test on it.
 
 ##Contents
 
@@ -8,6 +8,7 @@ This is a web-based application that reads RSS feeds. This app has also[Jasmine]
 2. How to use it
 3. Tests
 4. To do's
+5. How the code is organized
 
 
 ##How to run
@@ -16,7 +17,7 @@ To run this app [download](https://github.com/Mancinek/Feedreader-Testing/archiv
 
 ##How to use it
 
-At the beginning you'll see first feed loaded. To change it click the "hamburger" menu icon, the menu will slide out, and check other feed.
+At the beginning you'll see first feed loaded. To change it click the "hamburger" menu icon, the menu will slide out, then check other feed.
 At the bottom of page you'll find Jasmine window that contains test, that have been performed on this application.
 
 ## Tests
@@ -33,8 +34,9 @@ Within this app 7 tests has been performed using Jasmine engine:
 
 ## To do's
 
-The 6th test checks only first feed (loadFeed(0)) - the test could be also performed on other feeds.
-The 7th test checks changing content between second (loadFeed(1)) and first feed (loadFeed(0)) - it could be also tested on other feeds.
+Two things:
+- the 6th test checks only first feed (loadFeed(0)) - the test could be also performed on other feeds.
+- the 7th test checks changing content between second (loadFeed(1)) and first feed (loadFeed(0)) - it could be also tested on other feeds.
 
 ##How the code is organized
 
