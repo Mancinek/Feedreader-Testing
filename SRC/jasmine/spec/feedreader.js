@@ -10,8 +10,10 @@ $(function() {
 
         // to be sure, before start the next two test, we check whether the allFeeds array exitsts and is not empty
         beforeEach(function() {
-            expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            it('are defined', function() {
+                expect(allFeeds).toBeDefined();
+                expect(allFeeds.length).not.toBe(0);
+            });
         });
 
         // Test that loops through each feed in the allFeeds object and ensures it has a URL defined and that the URL is not empty.
@@ -71,9 +73,9 @@ $(function() {
             loadFeed(0, done);
         });
 
-        /// if the loaded feed has any .entry element defined the test is passed
+        /// if the loaded .feed has any .entry element defined the test is passed
         it('has at least one element', function(done) {
-            expect($('.entry').html()).toBeDefined();
+            expect($('.feed .entry').html()).toBeDefined();
             done();
         });
 
@@ -89,16 +91,19 @@ $(function() {
 
         // before start testing, feed(1) is loaded and it's content is assigned to the first feed variable
         beforeEach(function(done) {
-            loadFeed(1, done);
-            firstFeed = $('.feed').html();
+            loadFeed(1, function(){
+                firstFeed = $('.feed').html();
+                done();
+            });
         });
 
         it('changes the feed content', function(done) {
             // other feed is loaded (in this case feed 0)
-            loadFeed(0);
-            // when new feed is loaded, its content is compared the the firstFeed content - it shoud not to be equal
-            expect($('.feed').html()).not.toEqual(firstFeed);
-            done();
+            loadFeed(0, function(){
+                // when new feed is loaded, its content is compared the the firstFeed content - it shoud not to be equal
+                expect($('.feed').html()).not.toEqual(firstFeed);
+                done();
+            });
         });
 
     });
